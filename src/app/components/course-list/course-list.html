@@ -8,7 +8,7 @@
     <div class="search-filter-section">
         <div class="search-box">
             <label for="search" class="search-label">Sök på en kurs:</label>
-            <input type="text" id="search" placeholder="Sök...(T.ex. Webbutveckling)" [ngModel]="searchTerm()"
+            <input type="text" id="search" placeholder="Sök på kurskod eller kursnamn" [ngModel]="searchTerm()"
                 (ngModelChange)="searchTerm.set($event)" class="search-input">
         </div>
     </div>
