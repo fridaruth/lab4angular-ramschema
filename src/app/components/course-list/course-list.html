@@ -15,9 +15,19 @@
 <table>
     <thead>
         <tr>
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Progression</th>
+            <th (click)="changeSort('code')" style="cursor: pointer">
+                Kurskod
+            @if (sortKey() === 'code') { {{ sortAscending() ? '▲' : '▼' }} } 
+        </th>
+            <th (click)="changeSort('coursename')" style="cursor: pointer">
+                Kursnamn
+            @if (sortKey() === 'coursename') { {{ sortAscending() ? '▲' : '▼' }} }
+            </th>
+            <th (click)="changeSort('progression')" style="cursor: pointer">
+                Progression
+            @if (sortKey() === 'progression') { {{ sortAscending() ? '▲' : '▼' }} }
+            </th>
+            <th>Syllabus</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +36,11 @@
                 <td>{{ course.code.toUpperCase() }}</td>
                 <td>{{ course.coursename }}</td>
                 <td>{{ course.progression }}</td>
+                <td>
+                    <a [href]="course.syllabus" target="_blank" rel="noopener noreferrer" class="syllabus-link">
+                        Visa Kursplan
+                    </a> 
+                </td>
             </tr>
         } @empty {
             <tr>
