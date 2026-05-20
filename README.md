@@ -4,9 +4,9 @@ Detta är en reaktiv Angular-applikation, byggd för laboration 4 i kursen Progr
 
 ---
 
-[Länk till publicerad sida]()
+[Länk till publicerad sida](https://lab4ramschema.netlify.app)
 
---
+---
 
 ## Funktioner
 
