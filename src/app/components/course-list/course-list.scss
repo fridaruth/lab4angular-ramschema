@@ -1,0 +1,173 @@
+// Färger
+$color-dark: #222222;
+$color-bg: #F8F7F2;
+$color-accent: #f79b2b;
+$font-accent: 'Victor Mono', monospace;
+$font-main: 'Courier New', 'Courier', monospace;
+
+:host {
+    display: block;
+    background-color: $color-bg;
+    color: $color-dark;
+    font-family: $font-main;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.course-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-banner {
+    background-color: $color-dark;
+    color: $color-bg;
+    padding: 60px;
+    margin-bottom: 50px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.main-header {
+    font-family: $font-accent;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.sub-header {
+    font-family: $font-main;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+// sök
+.search-filter-section {
+    margin-bottom: 40px;
+
+    .search-box {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 500px;
+
+        .search-label {
+            font-family: $font-accent;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: $color-accent;
+        }
+
+        .search-input {
+            background: white;
+            border: 3px solid $color-dark;
+            padding: 15px;
+            font-family: $font-main;
+            font-size: 1.2rem;
+            color: $color-dark;
+            text-transform: uppercase;
+            transition: all 0.2s;
+
+            &:focus {
+                outline: none;
+                box-shadow: 5px 5px 0px $color-accent;
+            }
+
+            &::placeholder {
+                color: rgba(34, 34, 34, 0.4);
+            }
+        }
+    }
+}
+
+// tabell
+.course-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+
+    thead tr th {
+        font-family: $font-accent;
+        font-size: 1.3rem;
+        text-align: center;
+        padding: 15px;
+        color: $color-accent;
+        user-select: none;
+
+        &:nth-child(2) {
+            text-align: left;
+        }
+
+        &[style*="cursor:pointer"] {
+            transition: color 0.2s;
+
+            &:hover {
+                color: $color-dark;
+            }
+        }
+    }
+}
+
+tbody tr {
+    background-color: white;
+    border: 3px solid $color-dark;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 0px $color-dark;
+    }
+
+    td {
+        padding: 20px;
+        border-top: 3px solid $color-dark;
+        border-bottom: 3px solid $color-dark;
+        text-align: center;
+
+        &:nth-child(2) {
+            text-align: left;
+        }
+
+        &:first-child {
+            border-left: 3px solid $color-dark;
+            border-radius: 5px 0 0 5px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        &:last-child {
+            border-right: 3px solid $color-dark;
+            border-radius: 0 5px 5px 0;
+        }
+    }
+}
+
+// progression centrerad
+.centered {
+    text-align: center;
+}
+
+// kursplanlänk
+.syllabus-link {
+    display: inline-block;
+    background-color: $color-dark;
+    color: $color-bg;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: $font-main;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: $color-accent;
+        transform: scale(1.05);
+    }
+}

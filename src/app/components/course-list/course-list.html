@@ -1,37 +1,38 @@
 <div class="course-container">
-<h1>Ramschema för Webbutveckling</h1> 
 
-<div class="search-box">
-    <label for="search">Sök på kurskod eller kursnamn:</label>
-    <input 
-    type="text" 
-    id="search" 
-    placeholder="Sök...(T.ex. Webbutveckling)"
-    [ngModel]="searchTerm()"
-    (ngModelChange)="searchTerm.set($event)"
-    >
-</div>
+    <div class="hero-banner">
+        <h1 class="main-header">WEBBUTVECKLING</h1>
+        <p class="sub-header">Ramschema för Webbutveckling</p>
+    </div>
 
-<table>
-    <thead>
-        <tr>
-            <th (click)="changeSort('code')" style="cursor: pointer">
-                Kurskod
-            @if (sortKey() === 'code') { {{ sortAscending() ? '▲' : '▼' }} } 
-        </th>
-            <th (click)="changeSort('coursename')" style="cursor: pointer">
-                Kursnamn
-            @if (sortKey() === 'coursename') { {{ sortAscending() ? '▲' : '▼' }} }
-            </th>
-            <th (click)="changeSort('progression')" style="cursor: pointer">
-                Progression
-            @if (sortKey() === 'progression') { {{ sortAscending() ? '▲' : '▼' }} }
-            </th>
-            <th>Syllabus</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (course of filteredCourses(); track course.code) {
+    <div class="search-filter-section">
+        <div class="search-box">
+            <label for="search" class="search-label">Sök på en kurs:</label>
+            <input type="text" id="search" placeholder="Sök...(T.ex. Webbutveckling)" [ngModel]="searchTerm()"
+                (ngModelChange)="searchTerm.set($event)" class="search-input">
+        </div>
+    </div>
+
+    <table class="course-table">
+        <thead>
+            <tr>
+                <th (click)="changeSort('code')" style="cursor: pointer">
+                    Kurskod
+                    @if (sortKey() === 'code') { {{ sortAscending() ? '▲' : '▼' }} }
+                </th>
+                <th (click)="changeSort('coursename')" style="cursor: pointer" class="left">
+                    Kursnamn
+                    @if (sortKey() === 'coursename') { {{ sortAscending() ? '▲' : '▼' }} }
+                </th>
+                <th (click)="changeSort('progression')" style="cursor: pointer">
+                    Progression
+                    @if (sortKey() === 'progression') { {{ sortAscending() ? '▲' : '▼' }} }
+                </th>
+                <th>Kursplan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (course of filteredCourses(); track course.code) {
             <tr>
                 <td>{{ course.code.toUpperCase() }}</td>
                 <td>{{ course.coursename }}</td>
@@ -39,14 +40,14 @@
                 <td>
                     <a [href]="course.syllabus" target="_blank" rel="noopener noreferrer" class="syllabus-link">
                         Visa Kursplan
-                    </a> 
+                    </a>
                 </td>
             </tr>
-        } @empty {
+            } @empty {
             <tr>
                 <td colspan="3" style="text-align: center;">Inga kurser hittades.</td>
             </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
 </div>
