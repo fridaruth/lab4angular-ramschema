@@ -3,7 +3,13 @@
 
 <div class="search-box">
     <label for="search">Sök på kurskod eller kursnamn:</label>
-    <input type="text" id="search" placeholder="Sök...(T.ex. Webbutveckling)">
+    <input 
+    type="text" 
+    id="search" 
+    placeholder="Sök...(T.ex. Webbutveckling)"
+    [ngModel]="searchTerm()"
+    (ngModelChange)="searchTerm.set($event)"
+    >
 </div>
 
 <table>
@@ -15,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (course of courses; track course.code) {
+        @for (course of filteredCourses(); track course.code) {
             <tr>
                 <td>{{ course.code.toUpperCase() }}</td>
                 <td>{{ course.coursename }}</td>
@@ -23,7 +29,7 @@
             </tr>
         } @empty {
             <tr>
-                <td colspan="3">Inga kurser hittades.</td>
+                <td colspan="3" style="text-align: center;">Inga kurser hittades.</td>
             </tr>
         }
     </tbody>

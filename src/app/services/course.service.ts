@@ -6,7 +6,7 @@ import { Course } from '../models/course'
 @Injectable({
   providedIn: 'root',
 })
-export class CourseServices {
+export class CourseService {
   private url: string = 'https://webbutveckling.miun.se/files/ramschema.json';
   constructor(private http: HttpClient) { }
 
